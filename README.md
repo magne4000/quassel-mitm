@@ -22,11 +22,12 @@ DEBUG=* node app.js
 
   Options:
 
-    -h, --help                   output usage information
-    -V, --version                output the version number
-    --quasselhost [quasselhost]  Quasselcore host (default: localhost)
-    --quasselport [quasselport]  Quasselcore port (default: 4242)
-    -p, --port [port]            Port on which the application listens (default: 64242)
+    -h, --help                               output usage information
+    -V, --version                            output the version number
+    --quasselhost [quasselhost]              Quasselcore host (default: localhost)
+    --quasselport [quasselport]              Quasselcore port (default: 4242)
+    -p, --port [port]                        Port on which the application listens (default: 64242)
+    -m, --maxbufferlength [maxbufferlength]  Maximum buffer length to display (default: 30)
 ```
 
 ### Start debugging
