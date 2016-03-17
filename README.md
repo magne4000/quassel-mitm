@@ -2,6 +2,8 @@
 The purpose of this tool is to ease the debugging of quassel clients. It stands between the core and the client.
 All packets transiting through `quassel-mitm` will be printed to the console, in hexadecimal and interpreted json format.
 
+:warning: It disables compression and encryption !
+
 ## Installation
 It requires at least `node>=4` in order to run
 ```sh
