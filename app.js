@@ -11,24 +11,26 @@ for (var i=0; i<printableChars.length; i++) {
 }
  
 program
-  .version('1.0.0')
+  .version('1.0.2')
   .option('--quasselhost [quasselhost]', 'Quasselcore host (default: localhost)')
   .option('--quasselport [quasselport]', 'Quasselcore port (default: 4242)')
   .option('-p, --port [port]', 'Port on which the application listens (default: 64242)')
+  .option('-m, --maxbufferlength [maxbufferlength]', 'Maximum buffer length to display (default: 30)')
   .parse(process.argv);
 
 if (program.quasselhost === undefined) program.quasselhost = 'localhost';
 if (program.quasselport === undefined) program.quasselport = 4242;
 if (program.port === undefined) program.port = 64242;
+if (program.maxbufferlength === undefined) program.maxbufferlength = 30;
 
 Buffer.prototype.inspect = function() {
-    var isPrintable = true, ret = '<Buffer ', j=30, raw = [];
+    var isPrintable = true, ret = '<Buffer ', j=program.maxbufferlength, raw = [];
     //return qtdatastream.util.str(this);
     for (var value of this.values()) {
         if (printableCharcodes.indexOf(value) === -1) {
             isPrintable = false;
         }
-        if (j-- >= 0) {
+        if (j-- > 0) {
             raw.push(value.toString(16));
         } else if (!isPrintable) {
             break;
@@ -39,7 +41,7 @@ Buffer.prototype.inspect = function() {
         ret += '|str:' + qtdatastream.util.str(this);
     }
     ret += '|raw:' + raw.join(' ');
-    if (this.length > 30) {
+    if (this.length > program.maxbufferlength) {
         ret += '...';
     }
     ret += '>';
