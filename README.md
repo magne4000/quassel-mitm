@@ -5,8 +5,7 @@ All packets transiting through `quassel-mitm` will be printed to the console, in
 ## Installation
 It requires at least `node>=4` in order to run
 ```sh
-git clone https://github.com/magne4000/quassel-mitm.git
-npm install
+git clone https://github.com/magne4000/quassel-mitm.git && cd quassel-mitm && npm install
 ```
 
 ## Run
