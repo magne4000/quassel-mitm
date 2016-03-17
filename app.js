@@ -28,8 +28,11 @@ Buffer.prototype.inspect = function() {
         if (printableCharcodes.indexOf(value) === -1) {
             isPrintable = false;
         }
-        raw.push(value.toString(16));
-        if (j-- < 0) break;
+        if (j-- >= 0) {
+            raw.push(value.toString(16));
+        } else if (!isPrintable) {
+            break;
+        }
     }
     ret += 'len:' + this.length;
     if (isPrintable) {

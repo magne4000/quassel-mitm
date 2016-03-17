@@ -1,7 +1,7 @@
 {
   "name": "quassel-mitm",
   "description": "Quassel man-in-the-middle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/magne4000/quassel-mitm",
   "license": "MIT",
   "author": {
